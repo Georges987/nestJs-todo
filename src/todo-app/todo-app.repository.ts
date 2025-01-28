@@ -25,7 +25,7 @@ export class TodoAppRepository{
 		const todos = JSON.parse(contents)
 		const id =generateUniqueId({prefix:"todo"})
 		const {content, status} = body
-		let newObject:todoDTO = {id, content,status}
+		let newObject : todoDTO = {id, content,status}
 		console.log(newObject);
 		if(!newObject.status){
 			newObject.status=TodoStatus.PENDING;
@@ -36,14 +36,14 @@ export class TodoAppRepository{
 		return todos
 	}
 
-	async fetchTodo(id){
+	async fetchTodo (id : string) {
 		const contents = await readFile('todoList.json','utf-8');
 		const todos = JSON.parse(contents)
 		var result = todos.find(todo => todo.id === id);
 		return result 
 	}
 
-	async updateTodo(id,body:todoDTO){
+	async updateTodo (id: string,body: todoDTO){
 		const contents = await readFile('todoList.json','utf-8');
 		const todos = JSON.parse(contents)
 		var object = todos.find(todo => todo.id === id);
@@ -60,7 +60,7 @@ export class TodoAppRepository{
 		return todos
 	}
 
-	async deleteTodo(id){
+	async deleteTodo(id: string){
 		const contents = await readFile('todoList.json','utf-8');
 		let todos = JSON.parse(contents)
 		console.log(todos);

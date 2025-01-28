@@ -1,4 +1,4 @@
-declare type Config = {
+type Config = {
     prefix: string;
 };
 declare const generateUniqueId: ({ prefix }: Config) => string;
